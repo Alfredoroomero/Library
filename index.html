@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+
+    <link rel="stylesheet" href="style.css">    
+    
+</head>
+
+<body>
+
+    <header>
+        <h1>My library</h1>
+        <button id="btn-new-book" type="button">
+            + New book 
+        </button>
+    </header>
+
+    <main>
+        <p id="empty-state">You haven't added any books yet. Click "New Book" to create your first one.</p>
+
+        <section id="library" aria-live="polite"></section>    
+    </main>
+
+    <aside id="panel" class="is-hidden" aria-labelledby="panel-title">
+        
+        <h2 id="panel-title">Add book</h2>
+
+        <form id="new-book-form" action="#" method="post">            
+
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text" required minlength="1" />
+
+            <label for="author">Author</label>
+            <input id="author" name="author" type="text" required minlength="1" />
+
+            <label for="pages">Pages</label>
+            <input id="pages" name="pages" type="number" min="1" required />
+
+            <label>
+                <input id="read" name="read" type="checkbox" />
+                <span>Read</span>
+            </label>
+        
+
+            <div class="actions">
+                <button type="button" id="dialog-cancel">Cancel</button>
+                <button type="submit">save</button>
+            </div>
+        </form>
+    </aside>
+    
+    <script src="script.js" defer></script>
+</body>
+</html>

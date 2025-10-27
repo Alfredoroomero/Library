@@ -1,0 +1,118 @@
+* { box-sizing: border-box; }
+
+:root { --gap: 1rem; --surface: #fff; --text: #111; --muted: #666; --border: #e6e6e6; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  color: var(--text);
+  background: #f6f7f9;
+}
+
+header{
+    display: flex; /*en fila*/
+    justify-content: space-between; /*separa titulos y boton a extremos*/
+    align-items: center;
+    padding: 1rem ;
+    background: var(--surface); /*fondo*/
+    border-bottom: 1px solid var(--border); 
+}
+
+h1{ margin:0; font-size: 1.5rem;}
+
+button {
+    cursor: pointer; 
+    border: 1px solid var(--border);
+    background: #fff; 
+    padding: .6rem 1rem; 
+    border-radius: .6rem;
+    font-weight: 600; 
+}
+
+#btn-new-book {
+    background: #111;
+    color: #fff; 
+    border-color: #111; 
+}
+
+main {
+  max-width: 1100px; 
+  margin: 1.25rem auto; 
+  padding: 0 clamp(1rem, 3vw, 2rem); 
+}
+
+#empty-state { color: var(--muted); } /* Mensaje inicial en color atenuado */
+
+#library {
+  display: grid; 
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Columnas fluidas responsivas */
+  margin-top: 1rem; 
+}
+
+.book-card {
+  background: var(--surface); 
+  border: 1px solid var(--border); 
+  border-radius: .8rem; 
+  padding: 1rem; /* Relleno interno */
+  display: grid; /* Layout en grid interno */
+  gap: .5rem; 
+}
+
+#panel.is-hidden { display: none; } /* Clase para ocultar el panel */
+
+#panel {
+  position: fixed; /* fijo a la ventana */
+  inset: 0 0 0 auto; /* top:0 right:0 bottom:0 */
+  width: min(420px, 92vw);
+  background: #fff;
+  border-left: 1px solid var(--border); 
+  padding: 1rem; 
+  overflow: auto; /* scroll si hace falta */
+  display: grid; 
+  gap: 1rem;
+}
+
+#panel h2 { margin: 0; } /* título sin margen */
+
+/* Formulario del panel */
+#new-book-form {
+  display: grid; /* campos en columna */
+  gap: .75rem; 
+}
+
+label { font-weight: 600; } /* etiquetas marcadas */
+
+input[type="text"], input[type="number"] {
+
+  width: 100%; 
+  padding: .6rem .7rem; 
+  border: 1px solid var(--border); /* borde sutil */
+  border-radius: .4rem; /* leve redondeo */
+  background: #fff; /* fondo blanco */
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+
+  outline: none; /* sin contorno azul del navegador */
+  border-color: #111; /* marca foco con borde más oscuro */
+}
+
+/* Checkbox */
+label > input[type="checkbox"] + span { margin-left: .4rem; } /* espacio junto al texto */
+
+/* Acciones del form */
+.actions {
+  margin-top: .5rem; 
+  display: flex; 
+  gap: .5rem; 
+  justify-content: flex-end; /* alineados a la derecha */
+}
+
+.actions button[type="submit"] {
+  background: #111; 
+  color: #fff; 
+  border-color: #111; 
+}
